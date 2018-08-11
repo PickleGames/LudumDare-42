@@ -15,11 +15,14 @@ public class Tiling : MonoBehaviour
     public bool reverseScale = false;   // used if the object is not tilable
 
     public float moveSpeed;
+    public bool station;
 
     private SpriteRenderer sr;
     private float spriteWidth = 0f;
     private Camera cam;
     private Transform myTransform;
+
+    public Sprite trainStation;
 
     private void Awake()
     {
@@ -54,14 +57,29 @@ public class Tiling : MonoBehaviour
             // checking if edge of sprite is visible and instantiate new clone if possible
             if (cam.transform.position.x >= edgePositionRight - offsetX && !hasARightClone)
             {
-                MakeNewClone(1);
+                if (station)
+                {
+                    MakeNewClone(1, trainStation);                 
+                }
+                else
+                {
+                    MakeNewClone(1);
+                }
                 hasARightClone = true;
             }
             else if (cam.transform.position.x <= edgePositionLeft + offsetX && !hasALeftClone)
             {
-                MakeNewClone(-1);
+                if (station)
+                {
+                    MakeNewClone(-1, trainStation);                 
+                }
+                else
+                {
+                    MakeNewClone(-1);
+                }
                 hasALeftClone = true;
             }
+
         }
 
         // check if clone is 'offscreen' (to the left) and delete
@@ -69,6 +87,12 @@ public class Tiling : MonoBehaviour
         {
             hasALeftClone = false;
             Destroy(this.gameObject);
+        }
+
+        if(station && edgePositionLeft > cam.transform.position.x + spriteWidth)
+        {
+            sr.sprite = trainStation;
+            spriteWidth = this.transform.parent.localScale.x * sr.sprite.bounds.size.x;
         }
     }
 
@@ -104,20 +128,33 @@ public class Tiling : MonoBehaviour
 
     // make a new clone with a new sprite
     void MakeNewClone(int direction, Sprite sprite)
-    {
-        // reassign sprite and and sprite width 
-        sr.sprite = sprite;
-        spriteWidth = this.transform.parent.localScale.x * sr.sprite.bounds.size.x;
+    { 
+        Vector3 newPosition =
+            new Vector3(myTransform.position.x + spriteWidth * direction, myTransform.position.y, myTransform.position.z);
 
-        // make new clone in direction with new sprite
-        MakeNewClone(direction);
+        Transform newClone = (Transform)Instantiate(myTransform, newPosition, myTransform.rotation, myTransform.parent);
+        newClone.GetComponent<SpriteRenderer>().sprite = sprite;
+
+        if (reverseScale)
+        {
+            newClone.localScale = new Vector3(newClone.localScale.x * -1, newClone.localScale.y, newClone.localScale.z);
+        }
+
+        if (direction > 0)
+        {
+            newClone.GetComponent<Tiling>().hasALeftClone = true;
+        }
+        else
+        {
+            newClone.GetComponent<Tiling>().hasARightClone = true;
+        }
 
     }
 
     // move clone to the left
     private void MoveClone() 
     {
-        this.transform.Translate(-moveSpeed, 0, 0);
+        this.transform.Translate(-moveSpeed, 0, 0); 
     }
 
 }
