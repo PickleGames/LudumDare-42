@@ -28,7 +28,7 @@ public class Tiling : MonoBehaviour
     void Start()
     {
         SpriteRenderer sRenderer = GetComponent<SpriteRenderer>();
-        spriteWidth = sRenderer.sprite.bounds.size.x;
+        spriteWidth = this.transform.parent.localScale.x * sRenderer.sprite.bounds.size.x;
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class Tiling : MonoBehaviour
             new Vector3(myTransform.position.x + spriteWidth * direction, myTransform.position.y, myTransform.position.z);
 
         // instantiating new clone and storing it in a variable
-        Transform newClone = (Transform)Instantiate(myTransform, newPosition, myTransform.rotation);
+        Transform newClone = (Transform)Instantiate(myTransform, newPosition, myTransform.rotation, myTransform.parent);
 
         // if not tilable reverse the x size of object to smooth out the seam
         if (reverseScale)
@@ -75,7 +75,7 @@ public class Tiling : MonoBehaviour
             newClone.localScale = new Vector3(newClone.localScale.x * -1, newClone.localScale.y, newClone.localScale.z);
         }
 
-        newClone.parent = myTransform.parent;
+         //newClone.parent = myTransform.parent;
 
         if (direction > 0)
         {
