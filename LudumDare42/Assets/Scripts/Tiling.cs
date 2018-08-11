@@ -14,6 +14,9 @@ public class Tiling : MonoBehaviour
 
     public bool reverseScale = false;   // used if the object is not tilable
 
+    public float moveSpeed;
+
+    private SpriteRenderer sr;
     private float spriteWidth = 0f;
     private Camera cam;
     private Transform myTransform;
@@ -27,24 +30,27 @@ public class Tiling : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        SpriteRenderer sRenderer = GetComponent<SpriteRenderer>();
-        spriteWidth = this.transform.parent.localScale.x * sRenderer.sprite.bounds.size.x;
+        sr = GetComponent<SpriteRenderer>();
+        spriteWidth = this.transform.parent.localScale.x * sr.sprite.bounds.size.x;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // move this mudafuka 
+        MoveClone();
+
+        // calculates the cameras extent (half the width) of what the camera can see in world coordinates
+        float camHorizontalExtent = cam.orthographicSize * Screen.width / Screen.height;
+
+        // calculate the x position where tha camera can seee the edge of the sprite
+        float edgePositionRight = (myTransform.position.x + spriteWidth / 2) - camHorizontalExtent;
+        float edgePositionLeft = (myTransform.position.x - spriteWidth / 2) + camHorizontalExtent;
+
         // does it still need clones? If not do nothing
         if (!hasALeftClone || !hasARightClone)
         {
-            // calculates the cameras extent (half the width) of what the camera can see in world coordinates
-            float camHorizontalExtent = cam.orthographicSize * Screen.width / Screen.height;
-
-            // calculate the x position where tha camera can seee the edge of the sprite
-            float edgePositionRight = (myTransform.position.x + spriteWidth / 2) - camHorizontalExtent;
-            float edgePositionLeft = (myTransform.position.x - spriteWidth / 2) + camHorizontalExtent;
-
-
+           
             // checking if edge of sprite is visible and instantiate new clone if possible
             if (cam.transform.position.x >= edgePositionRight - offsetX && !hasARightClone)
             {
@@ -56,6 +62,13 @@ public class Tiling : MonoBehaviour
                 MakeNewClone(-1);
                 hasALeftClone = true;
             }
+        }
+
+        // check if clone is 'offscreen' (to the left) and delete
+        if (edgePositionRight + spriteWidth / 2 <= cam.transform.position.x)
+        {
+            hasALeftClone = false;
+            Destroy(this.gameObject);
         }
     }
 
@@ -88,4 +101,23 @@ public class Tiling : MonoBehaviour
             newClone.GetComponent<Tiling>().hasARightClone = true;
         }
     }
+
+    // make a new clone with a new sprite
+    void MakeNewClone(int direction, Sprite sprite)
+    {
+        // reassign sprite and and sprite width 
+        sr.sprite = sprite;
+        spriteWidth = this.transform.parent.localScale.x * sr.sprite.bounds.size.x;
+
+        // make new clone in direction with new sprite
+        MakeNewClone(direction);
+
+    }
+
+    // move clone to the left
+    private void MoveClone() 
+    {
+        this.transform.Translate(-moveSpeed, 0, 0);
+    }
+
 }
