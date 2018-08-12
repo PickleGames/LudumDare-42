@@ -12,6 +12,7 @@ public class TrainCart : MonoBehaviour {
     public int numberOfPeople;
     public float Durability { get; private set; }
 
+    private int contacts;
     private float timeElapsed;
 
     void Start () {
@@ -54,5 +55,21 @@ public class TrainCart : MonoBehaviour {
         if (Durability <= 0) IsBreak = true;
     }
 
+    // check if AI have entered and exited train cart area, adjust contacts accordingly
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "AI")
+        {
+            numberOfPeople += 1;
+        }
 
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "AI")
+        {
+            numberOfPeople -= 1;
+        }
+
+    }
 }

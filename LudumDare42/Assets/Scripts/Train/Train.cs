@@ -55,11 +55,11 @@ public class Train : MonoBehaviour {
         SpriteRenderer sp = TrainCartFab.GetComponentInChildren<SpriteRenderer>();
         if (direction == Direction.Left)
         {
-            player.transform.position = new Vector2(t.position.x + ((TrainCartFab.transform.localScale.x * sp.transform.localScale.x * sp.sprite.bounds.size.x) / 2) * .7f,
+            player.transform.position = new Vector2(t.position.x + ((TrainCartFab.transform.localScale.x * sp.transform.localScale.x * sp.sprite.bounds.size.x) / 2) * .8f,
                                                     player.transform.position.y);
         }else if (direction == Direction.Right)
         {
-            player.transform.position = new Vector2(t.position.x - ((TrainCartFab.transform.localScale.x * sp.transform.localScale.x * sp.sprite.bounds.size.x) / 2) * .7f,
+            player.transform.position = new Vector2(t.position.x - ((TrainCartFab.transform.localScale.x * sp.transform.localScale.x * sp.sprite.bounds.size.x) / 2) * .8f,
                                                     player.transform.position.y);
         }
     }
