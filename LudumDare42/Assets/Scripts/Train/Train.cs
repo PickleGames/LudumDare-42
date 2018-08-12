@@ -45,7 +45,7 @@ public class Train : MonoBehaviour {
         trainList[playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(false);
         if (direction == Direction.Left) 
         {
-            if (playerTrainCartPosition < 4) playerTrainCartPosition++;
+            if (playerTrainCartPosition < trainList.Count - 1) playerTrainCartPosition++;
         }
         else if(direction == Direction.Right) 
         {
