@@ -5,6 +5,7 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour {
     public Vector2 movespeed;
 
+    private Animator anim;
     private float moveSpeed;
     private bool wandering;
     private bool isWalking;
@@ -17,11 +18,12 @@ public class AIMovement : MonoBehaviour {
         moveSpeed = Random.Range(movespeed.x, movespeed.y);
         rb = this.GetComponent<Rigidbody2D>();
         ai = this.transform.GetComponent<AI>();
+        anim = gameObject.GetComponent<Animator>();
 
     }
 
     void Update () {
-
+        anim.SetBool("isWalking", isWalking);
         if (!ai.IsFly)
         {
             if (!wandering)
@@ -34,11 +36,13 @@ public class AIMovement : MonoBehaviour {
                 {
                     Debug.Log("MOVING RIGHT");
                     rb.velocity = new Vector2(moveSpeed, 0);
+                    transform.localScale = new Vector2(1,1);
                     //transform.Translate(moveSpeed * Time.deltaTime, 0, 0);
                     Debug.Log(isWalkingLeft);
                 }
                 if (isWalkingLeft)
                 {
+                    transform.localScale = new Vector2(-1, 1);
                     Debug.Log("MOVING LEFT");
                     rb.velocity = new Vector2(-moveSpeed, 0);
                     //transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
