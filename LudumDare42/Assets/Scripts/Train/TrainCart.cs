@@ -34,6 +34,7 @@ public class TrainCart : MonoBehaviour {
         if(timeElapsed >= TIME_DESTROY)
         {
             Destroy(transform.gameObject);
+            KillAll();
         }
 	}
 
@@ -60,6 +61,15 @@ public class TrainCart : MonoBehaviour {
         {
             SpriteRenderer sr = aiList[i].GetComponentInChildren<SpriteRenderer>();
             sr.enabled = isEnable;
+        }
+    }
+
+    public void KillAll()
+    {
+        for (int i = 0; i < aiList.Count; i++)
+        {
+            aiList[i].GetComponent<AI>().FlyAway();
+
         }
     }
 

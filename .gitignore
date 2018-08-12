@@ -29,7 +29,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-LudumDare42/Assets/TextMesh Pro/Plugins/
-LudumDare42/.collabignore
+/LudumDare42/Assets/TextMesh Pro/Plugins/
+/LudumDare42/.collabignore
 *.lock
-LudumDare42/.vs/
+/LudumDare42/.vs/
