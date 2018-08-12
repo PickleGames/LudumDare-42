@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
-    public float speed = 5;
     private Rigidbody2D rb;
-    private bool isFly;
+    public bool IsFly { get; private set; }
 
     void Start()
     {
@@ -16,15 +15,15 @@ public class AI : MonoBehaviour {
 
     void Update()
     {
-        if (isFly)
+        if (IsFly)
         {
-            transform.Translate(new Vector2(-0.10f, 0));
+            transform.Translate(new Vector2(-0.25f, 0));
         }
     }
 
     public void FlyAway()
     {
         this.GetComponent<BoxCollider2D>().enabled = false;
-        isFly = true;
+        IsFly = true;
     }
 }
