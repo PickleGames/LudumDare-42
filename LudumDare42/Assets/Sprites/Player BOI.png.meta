@@ -1,27 +1,29 @@
 fileFormatVersion: 2
-guid: 55a7cb748f61ca24b99625d0241188b2
+guid: ef13e9399e58db842ac1e8d4494e97b5
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player BOI_0
-    21300002: Player BOI_1
-    21300004: Player BOI_2
-    21300006: Player BOI_3
-    21300008: Player BOI_4
-    21300010: Player BOI_5
-    21300012: Player BOI_6
-    21300014: Player BOI_7
-    21300016: Player BOI_8
-    21300018: Player BOI_9
-    21300020: Player BOI_10
-    21300022: Player BOI_11
-    21300024: Player BOI_12
-    21300026: Player BOI_13
-    21300028: Player BOI_14
-    21300030: Player BOI_15
-    21300032: Player BOI_16
-    21300034: Player BOI_17
-    21300036: Player BOI_18
-    21300038: Player BOI_19
+    21300000: PLAYER BOI_0
+    21300002: PLAYER BOI_1
+    21300004: PLAYER BOI_2
+    21300006: PLAYER BOI_3
+    21300008: PLAYER BOI_4
+    21300010: PLAYER BOI_5
+    21300012: PLAYER BOI_6
+    21300014: PLAYER BOI_7
+    21300016: PLAYER BOI_8
+    21300018: PLAYER BOI_9
+    21300020: PLAYER BOI_10
+    21300022: PLAYER BOI_11
+    21300024: PLAYER BOI_12
+    21300026: PLAYER BOI_13
+    21300028: PLAYER BOI_14
+    21300030: PLAYER BOI_15
+    21300032: PLAYER BOI_16
+    21300034: PLAYER BOI_17
+    21300036: PLAYER BOI_18
+    21300038: PLAYER BOI_19
+    21300040: PLAYER BOI_20
+    21300042: PLAYER BOI_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -115,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player BOI_0
+      name: PLAYER BOI_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,13 +131,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4716dfccf60d06d46b0aef19503627b7
+      spriteID: 36baf39f1935f624f96f43efd5c5038e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_1
+      name: PLAYER BOI_1
       rect:
         serializedVersion: 2
         x: 11
@@ -149,13 +151,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbae4c55c639ae6488550b89f6ac00b3
+      spriteID: 26214bb9e0d8b1c45bd4fe53a394746e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_2
+      name: PLAYER BOI_2
       rect:
         serializedVersion: 2
         x: 22
@@ -169,13 +171,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79620c98a930b47418ed8dd16d4f368a
+      spriteID: e9609a0ea207dfe4a836a2da39a60253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_3
+      name: PLAYER BOI_3
       rect:
         serializedVersion: 2
         x: 36
@@ -189,13 +191,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a1cde36680dcb4c81cb3f7f9172e14
+      spriteID: 28cae06e8b057194e98ee1c7417b94eb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_4
+      name: PLAYER BOI_4
       rect:
         serializedVersion: 2
         x: 217
@@ -209,13 +211,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ae1ba6fa1e390049ace5c22fc3ea456
+      spriteID: e952137ebe9f76d4298498e8e001c6a6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_5
+      name: PLAYER BOI_5
       rect:
         serializedVersion: 2
         x: 404
@@ -229,13 +231,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f38f6fde2d34534592a833de926bb79
+      spriteID: 366ac0238c293b5448db8824c0445eaa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_6
+      name: PLAYER BOI_6
       rect:
         serializedVersion: 2
         x: 567
@@ -249,13 +251,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d899c6dd704b81643b3cab70efe3d3a3
+      spriteID: 59f1ef70408e0644fba1a5fd7aeddba4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_7
+      name: PLAYER BOI_7
       rect:
         serializedVersion: 2
         x: 220
@@ -269,13 +271,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09e9ff81fc13e2347b43a4bfe7ef3d31
+      spriteID: 56b03afcf5972c1478df71d05ca12ff5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_8
+      name: PLAYER BOI_8
       rect:
         serializedVersion: 2
         x: 388
@@ -289,13 +291,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50144e3c7225e00488f3b0b06c58d38d
+      spriteID: 9496524c05a3bf54ea898daf9fa5f03e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_9
+      name: PLAYER BOI_9
       rect:
         serializedVersion: 2
         x: 547
@@ -309,13 +311,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd1794de9a90014392c0587e4ef6e25
+      spriteID: 0f7af79c8d85ae24597fc36b8e010f8c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_10
+      name: PLAYER BOI_10
       rect:
         serializedVersion: 2
         x: 716
@@ -329,13 +331,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d412e41ba73afcf4aa276011a4dd6b91
+      spriteID: a0b0594e37436574c9eda7f45380202e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_11
+      name: PLAYER BOI_11
       rect:
         serializedVersion: 2
         x: 879
@@ -349,13 +351,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca44073f6624e0148b1087ede27567dc
+      spriteID: 007a6caaf0150b240b8ba57c0380e9d1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_12
+      name: PLAYER BOI_12
       rect:
         serializedVersion: 2
         x: 1056
@@ -369,13 +371,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ddb265e549ae9141abaca7eaa22c086
+      spriteID: d1b053ef7cfcc394fae96ad9888106b5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_13
+      name: PLAYER BOI_13
       rect:
         serializedVersion: 2
         x: 1261
@@ -389,13 +391,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ad0bb1ffdae1044ebaa71a5b2e8fcce
+      spriteID: 763b7f9e304301447ad7e7f22a55b6ae
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_14
+      name: PLAYER BOI_14
       rect:
         serializedVersion: 2
         x: 1493
@@ -409,13 +411,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a748e8889c05f51489842a88c6cb0c5a
+      spriteID: fd57a9594e58a4a43b03375406191adb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_15
+      name: PLAYER BOI_15
       rect:
         serializedVersion: 2
         x: 1689
@@ -429,13 +431,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb060db7858b71e41a678f1a861b6ecd
+      spriteID: 792dbcb3fb0774441a88c2be7bedf522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_16
+      name: PLAYER BOI_16
       rect:
         serializedVersion: 2
         x: 210
@@ -449,13 +451,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18bc69c9741192d489414dea763c03ee
+      spriteID: 8a3cbad9ba22b1647bfd4d969151a063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_17
+      name: PLAYER BOI_17
       rect:
         serializedVersion: 2
         x: 419
@@ -469,13 +471,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 120810b0b3de4324ca5d8dd411bf9b72
+      spriteID: 6740562f58244eb4f8574e305d537a5b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_18
+      name: PLAYER BOI_18
       rect:
         serializedVersion: 2
         x: 654
@@ -489,13 +491,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5275900dc9a3bb4aaec9dfc52580fe1
+      spriteID: 876d2c8e42eb5564f9f0e322a204d5e1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player BOI_19
+      name: PLAYER BOI_19
       rect:
         serializedVersion: 2
         x: 882
@@ -509,7 +511,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae619dd60b776654dafe41fe26f98c5d
+      spriteID: 99f0032d122d2494cb66b780c2a3cc8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAYER BOI_20
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 16
+        width: 130
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a9d238297a852489d1f538b45db851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAYER BOI_21
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 20
+        width: 130
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9174f937e26ba74ea3da2347bf7fa07
       vertices: []
       indices: 
       edges: []
@@ -517,7 +559,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6aab2f0c08a840a41ab2484a21ea2efe
+    spriteID: e5b79fdda441cd84c9e86b942ed5ee7b
     vertices: []
     indices: 
     edges: []
