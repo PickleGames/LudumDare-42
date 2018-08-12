@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114067491090584788}
   m_Layer: 9
   m_Name: People
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256837988576910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.497, y: -0.377, z: 0.2477391}
+  m_LocalPosition: {x: 0.5456524, y: 2.06501, z: 0.2477391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4133938355267376}
