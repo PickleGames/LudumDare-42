@@ -12,9 +12,11 @@ public class TrainCart : MonoBehaviour {
     public int numberOfPeople;
     public float Durability { get; private set; }
 
+    public List<GameObject> aiList;
     private float timeElapsed;
 
     void Start () {
+        aiList = new List<GameObject>();
         Durability = 100;    	
 	}
 	
@@ -45,6 +47,22 @@ public class TrainCart : MonoBehaviour {
         IsBreak = true;
     }
 
+    public void RemovePeople(GameObject go)
+    {
+        Debug.Log("ai remove");
+        numberOfPeople -= 1;
+        aiList.Remove(go);
+    }
+
+    public void ChangePeopleRenderer(bool isEnable)
+    {
+        for (int i = 0; i < aiList.Count; i++)
+        {
+            SpriteRenderer sr = aiList[i].GetComponentInChildren<SpriteRenderer>();
+            sr.enabled = isEnable;
+        }
+    }
+
     private void ReduceDurability()
     {
         if(numberOfPeople > MAX_PEOPLE)
@@ -54,5 +72,16 @@ public class TrainCart : MonoBehaviour {
         if (Durability <= 0) IsBreak = true;
     }
 
+    // check if AI have entered and exited train cart area, adjust contacts accordingly
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("AI"))
+        {
+            numberOfPeople += 1;
+            aiList.Add(collision.gameObject);
+            collision.gameObject.GetComponent<AI>().trainCart = this;
+        }
+
+    }
 
 }
