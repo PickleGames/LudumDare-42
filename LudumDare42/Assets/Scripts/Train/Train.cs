@@ -25,11 +25,16 @@ public class Train : MonoBehaviour {
         }
         //SpawnTrain();
         ChangeCartSprite(playerTrainCartPosition, true);
+        
     }
-	
 
-
+    bool isEnablePlayer;
 	void Update () {
+        if (!isEnablePlayer)
+        {
+            trainList[playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(true);
+            isEnablePlayer = true;
+        }
         DeleteTrainCart();
 
 	}
@@ -37,6 +42,7 @@ public class Train : MonoBehaviour {
     public void ChangeCompartment(Direction direction)
     {
         ChangeCartSprite(playerTrainCartPosition, false);
+        trainList[playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(false);
         if (direction == Direction.Left) 
         {
             if (playerTrainCartPosition < 4) playerTrainCartPosition++;
@@ -45,7 +51,9 @@ public class Train : MonoBehaviour {
         {
             if(playerTrainCartPosition > 0) playerTrainCartPosition--;
         }
+
         TeleportPlayer(playerTrainCartPosition, direction);
+        trainList[playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(true);
         ChangeCartSprite(playerTrainCartPosition, true);
     }
 
@@ -92,19 +100,6 @@ public class Train : MonoBehaviour {
         trainList[trainIndex].GetComponentInChildren<SpriteRenderer>().sprite = trainSprite[spriteValue];
     }
 
-    private void SpawnTrain()
-    {
-        SpriteRenderer sp = TrainCartFab.GetComponentInChildren<SpriteRenderer>();
-        for (int i = 0; i < NumberOfCart; i++)
-        {
-            GameObject go = Instantiate(TrainCartFab, new Vector3(transform.position.x -
-                                        (i * TrainCartFab.transform.localScale.x * sp.transform.localScale.x * sp.sprite.bounds.size.x),
-                                            0, 0), Quaternion.identity, transform);
-            if (i == 0) go.GetComponentInChildren<SpriteRenderer>().sprite = trainSprite[0];
-            trainList.Add(go);
-        }
-    }
-
     private void DeleteTrainCart()
     {
         for (int i = 0; i < trainList.Count; i++)
@@ -120,6 +115,22 @@ public class Train : MonoBehaviour {
             }
         }
     }
+
+    //not use
+    private void SpawnTrain()
+    {
+        SpriteRenderer sp = TrainCartFab.GetComponentInChildren<SpriteRenderer>();
+        for (int i = 0; i < NumberOfCart; i++)
+        {
+            GameObject go = Instantiate(TrainCartFab, new Vector3(transform.position.x -
+                                        (i * TrainCartFab.transform.localScale.x * sp.transform.localScale.x * sp.sprite.bounds.size.x),
+                                            0, 0), Quaternion.identity, transform);
+            if (i == 0) go.GetComponentInChildren<SpriteRenderer>().sprite = trainSprite[0];
+            trainList.Add(go);
+        }
+    }
+
+    
 
 
 
