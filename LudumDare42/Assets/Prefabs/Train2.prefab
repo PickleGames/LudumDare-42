@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4692661742561420}
   - component: {fileID: 114793825030140250}
   - component: {fileID: 68129366494908284}
+  - component: {fileID: 61054158578522986}
   m_Layer: 0
   m_Name: TrainCartFront
   m_TagString: TrainCart
@@ -154,6 +155,7 @@ GameObject:
   - component: {fileID: 4226624710017608}
   - component: {fileID: 114912431096791572}
   - component: {fileID: 68287371228840716}
+  - component: {fileID: 61938271902867976}
   m_Layer: 0
   m_Name: TrainCartBody
   m_TagString: TrainCart
@@ -171,6 +173,7 @@ GameObject:
   - component: {fileID: 4771477033612402}
   - component: {fileID: 114235922589085516}
   - component: {fileID: 68934053438989186}
+  - component: {fileID: 61638168562440774}
   m_Layer: 0
   m_Name: TrainCartBody (1)
   m_TagString: TrainCart
@@ -253,6 +256,7 @@ GameObject:
   - component: {fileID: 4358014980499934}
   - component: {fileID: 114235962267886836}
   - component: {fileID: 68854455928238274}
+  - component: {fileID: 61530570681410862}
   m_Layer: 0
   m_Name: TrainCartBody (2)
   m_TagString: TrainCart
@@ -287,6 +291,7 @@ GameObject:
   - component: {fileID: 4814898379568426}
   - component: {fileID: 114059021516592794}
   - component: {fileID: 68413104746900646}
+  - component: {fileID: 61903075799177902}
   m_Layer: 0
   m_Name: TrainCartBody (3)
   m_TagString: TrainCart
@@ -680,6 +685,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.096170485, y: 0.18073928}
   m_EdgeRadius: 0
+--- !u!61 &61054158578522986
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140784473060436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06624293, y: 0.038641453}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4573407, y: 0.37069416}
+  m_EdgeRadius: 0
 --- !u!61 &61085853915780228
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -780,6 +810,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.096170485, y: 0.18073928}
   m_EdgeRadius: 0
+--- !u!61 &61530570681410862
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451393715718300}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046354532, y: 0.020601988}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5348215, y: 0.44375658}
+  m_EdgeRadius: 0
 --- !u!61 &61634701480424880
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -804,6 +859,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.096170485, y: 0.18073928}
+  m_EdgeRadius: 0
+--- !u!61 &61638168562440774
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378382397695948}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029213965, y: 0.009737849}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5386152, y: 0.3767631}
   m_EdgeRadius: 0
 --- !u!61 &61687051251997604
 BoxCollider2D:
@@ -879,6 +959,56 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.096170485, y: 0.18073928}
+  m_EdgeRadius: 0
+--- !u!61 &61903075799177902
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658008760546614}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01409179, y: 0.014091611}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.53132, y: 0.40813994}
+  m_EdgeRadius: 0
+--- !u!61 &61938271902867976
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242888738945978}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0409227, y: 0.029670238}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4938464, y: 0.4327984}
   m_EdgeRadius: 0
 --- !u!61 &61975409569082576
 BoxCollider2D:
@@ -1173,7 +1303,7 @@ MonoBehaviour:
   TrainCartFab: {fileID: 1946546677604784, guid: 05aefa9ec0555c443aa9516df4165193,
     type: 2}
   trainList: []
-  player: {fileID: 1252525356559700, guid: 41d37dab4e422d541bbc5d70297c1c42, type: 2}
+  player: {fileID: 0}
   playerTrainCartPosition: 0
   trainSprite:
   - {fileID: 21300000, guid: bff96a5f8b096384fa4e4b82f01ef36d, type: 3}
