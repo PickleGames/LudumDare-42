@@ -5,18 +5,24 @@ using TMPro;
 
 public class Scoring : MonoBehaviour {
     public static Scoring Instance;
+
+    public GameConductor gameConductor;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI stopText;
+
     public int score = 0;
 
 	// Use this for initialization
 	void Start () {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Dollar$: " + score;
+        stopText.text = "Stops: " + gameConductor.stops + "/" + gameConductor.finalStop;
         Instance = this;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Dollar$: " + score;
+        stopText.text = "Stops: " + gameConductor.stops + "/" + gameConductor.finalStop;
     }
 
     public void AddScore(int increment)

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
         if (Mathf.Abs(rb.velocity.y) > 5)
         {
             Debug.Log("eyyyyy u lose");
-            SceneManager.LoadScene("WIN");
+            SceneManager.LoadScene("LOST");
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             playerAttackTrigger.enabled = true;
             isAttack = true;

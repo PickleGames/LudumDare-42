@@ -29,8 +29,8 @@ public class AI : MonoBehaviour {
     {
         if (IsFly)
         {
-            transform.Translate(new Vector2(-1f, 0));
-            transform.Rotate(new Vector3(0, 0, 25));
+            transform.Translate(new Vector2(-.35f, 0));
+            transform.RotateAround(transform.position, Vector3.up, 5);
         }
         if(health <= 0)
         {

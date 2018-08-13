@@ -921,7 +921,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934717114024552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 4.1, z: 10}
+  m_LocalPosition: {x: 3, y: 3.17, z: 10}
   m_LocalScale: {x: 0.15720007, y: 0.15720007, z: 0.15720007}
   m_Children:
   - {fileID: 4893817501062688}
@@ -2022,6 +2022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPeople: 0
   aiList: []
+  allowIncreasePoint: 0
 --- !u!114 &114027237490434810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2796,6 +2797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPeople: 0
   aiList: []
+  allowIncreasePoint: 0
 --- !u!114 &114237750094745570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2822,6 +2824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPeople: 0
   aiList: []
+  allowIncreasePoint: 0
 --- !u!114 &114320758081108848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3657,6 +3660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPeople: 0
   aiList: []
+  allowIncreasePoint: 0
 --- !u!114 &114567025946433102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3670,6 +3674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTrain: {fileID: 0}
   targetCartList: []
+  AllowIncreasePoint: 0
 --- !u!114 &114614093905685388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3708,8 +3713,10 @@ MonoBehaviour:
   NumberOfCart: 0
   TrainCartFab: {fileID: 1066292378978460}
   trainList: []
+  IsOverlay: 1
   player: {fileID: 0}
   playerTrainCartPosition: 0
+  PlayTrainSound: 0
   trainSprite:
   - {fileID: 21300000, guid: bff96a5f8b096384fa4e4b82f01ef36d, type: 3}
   - {fileID: 21300000, guid: f6d27febe5ffa384fa1719cc09d6e139, type: 3}
@@ -3893,6 +3900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPeople: 0
   aiList: []
+  allowIncreasePoint: 0
 --- !u!212 &212235765177410290
 SpriteRenderer:
   m_ObjectHideFlags: 1

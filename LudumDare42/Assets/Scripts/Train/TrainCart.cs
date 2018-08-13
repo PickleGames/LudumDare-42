@@ -14,8 +14,9 @@ public class TrainCart : MonoBehaviour {
     public float Durability { get; set; }
 
     public List<GameObject> aiList;
-    private float timeElapsed;
+    public bool allowIncreasePoint = true;
 
+    private float timeElapsed;
     private bool isColorChanged;
     private float timeColorElapsed;
 
@@ -25,8 +26,10 @@ public class TrainCart : MonoBehaviour {
 	}
 	
 	void Update () {
-
-        Scoring.Instance.AddScore(10*numberOfPeople, 2);
+        //if (allowIncreasePoint)
+        //{
+        //}
+            Scoring.Instance.AddScore(10*numberOfPeople, 2);
 
         if (!Train.IsAtTrainStation)
         {
@@ -44,19 +47,13 @@ public class TrainCart : MonoBehaviour {
             KillAll();
         }
 
-        if (Durability < MAX_DURABILITY * .5f)
+        if (Durability < MAX_DURABILITY * .60f)
         {
-            CameraShake.Instance.isContinueShake = true;
-            
+            if (Durability < MAX_DURABILITY * .30f) { 
+                CameraShake.Instance.isContinueShake = true;
+            }
             if (!isColorChanged)
             {
-                //ChangeColor();
-                //timeColorElapsed += Time.deltaTime;
-                //if (timeColorElapsed >= .2f)
-                //{
-                //    timeColorElapsed = 0;
-                //    ResetColor();
-                //}
                 StartCoroutine(FlashColor());
             }
 
@@ -116,14 +113,15 @@ public class TrainCart : MonoBehaviour {
     {
         isColorChanged = true;
         SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
-        sr.color = new Color(1f, 0, 0, 1f);
-        yield return new WaitForSeconds(.3f);
+
+        sr.color = new Color(1f, Durability/MAX_DURABILITY , Durability / MAX_DURABILITY, 1f);
+        yield return new WaitForSeconds(.3f * Durability / MAX_DURABILITY + .05f);
         sr.color = new Color(1f, 1f, 1f, 1f);
-        yield return new WaitForSeconds(.3f);
-        sr.color = new Color(1f, 0, 0, 1f);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.3f + Durability / MAX_DURABILITY + .05f);
+        sr.color = new Color(1f, Durability / MAX_DURABILITY, Durability / MAX_DURABILITY, 1f);
+        yield return new WaitForSeconds(.3f + Durability / MAX_DURABILITY + .05f);
         sr.color = new Color(1f, 1f, 1f, 1f);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.3f + Durability / MAX_DURABILITY + .05f);
         isColorChanged = false;
     }
 
