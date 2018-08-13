@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour {
 
+    public static CameraShake Instance;
     public float amplitude;
     public bool isContinueShake;
 
@@ -11,16 +12,17 @@ public class CameraShake : MonoBehaviour {
     private bool isShake;
 
     void Start () {
-
+        Instance = this;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //Debug.Log(initPos.position);
         if (isContinueShake)
         {
             Shake(initPos.position, amplitude);
         }
-        //camera.transform.position = initPos;
+        this.transform.position = new Vector3(this.transform.position.x, 0 , this.transform.position.z);
 	}
 
     public void ShakeOne(float amplitude, float duration)

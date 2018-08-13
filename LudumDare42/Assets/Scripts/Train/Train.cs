@@ -24,7 +24,7 @@ public class Train : MonoBehaviour {
             }
         }
         //SpawnTrain();
-        ChangeCartSprite(playerTrainCartPosition, true);
+        //ChangeCartSprite(playerTrainCartPosition, true);
         
     }
 
@@ -36,7 +36,6 @@ public class Train : MonoBehaviour {
             isEnablePlayer = true;
         }
         DeleteTrainCart();
-
 	}
 
     public void ChangeCompartment(Direction direction)

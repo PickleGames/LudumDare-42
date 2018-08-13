@@ -16,6 +16,8 @@ public class SpeechBubble : MonoBehaviour {
     private TextMeshProUGUI text;
 
     public bool IsEnable { get; private set; }
+    public Vector2 bubbleScale; // x: 12, y : 7 
+
     private float timeElapsedBubble;
     private const float TIME_BUBBLE = 1f;
     private string currentText;
@@ -25,7 +27,7 @@ public class SpeechBubble : MonoBehaviour {
         text = this.GetComponentInChildren<TextMeshProUGUI>();
 
         playerSpriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
-        spriteSize = playerSpriteRenderer.bounds.size * 100;
+        spriteSize = playerSpriteRenderer.bounds.size;
 
         RandomText();
         DisableSpeech();
@@ -33,11 +35,17 @@ public class SpeechBubble : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        spriteSize = playerSpriteRenderer.bounds.size * 100;
+        //Debug.Log(spriteSize);
+        //Debug.Log(playerSpriteRenderer.sprite.texture.width * playerSpriteRenderer.transform.localScale.x);
+        //Debug.Log(playerSpriteRenderer.sprite.texture.height * playerSpriteRenderer.transform.localScale.y);
         Vector3 playerScreenPos = cam.WorldToScreenPoint(player.position);
-        this.transform.position = new Vector3(playerScreenPos.x + spriteSize.x,
-                                              playerScreenPos.y + spriteSize.y / 2,
+        this.transform.position = new Vector3(playerScreenPos.x + Screen.width / bubbleScale.x,
+                                              playerScreenPos.y + Screen.height / bubbleScale.y, 
                                               playerScreenPos.z);
-        if(IsEnable)
+
+        //this.transform.position = new Vector3(player.position.x, player.position.y, player.position.z);
+        if (IsEnable)
         {
             timeElapsedBubble += Time.deltaTime;
             if(timeElapsedBubble >= TIME_BUBBLE)
