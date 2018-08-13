@@ -8,12 +8,15 @@ public class GameConductor : MonoBehaviour {
     public GameObject tunnel;
     public GameObject trainStation;
 
+    public float finalStop;
+    private float stops;
+
     public float travelTime;
     public float stationTime;
     private bool atStation;
 	// Use this for initialization
 	void Start () {
-		
+        stops = 0;
 	}
 
     float tTimer, stimer;
@@ -28,6 +31,7 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 stimer = 0;            
                 atStation = false;
+                stops++;
             }
         }
         else
@@ -56,6 +60,11 @@ public class GameConductor : MonoBehaviour {
                 parallax.SetActive(true);
                 trainStation.SetActive(false);
             }
+        }
+
+        if(stops >= finalStop)
+        {
+            Debug.Log("YOU WIN BITCH!!\nYOU WIN BITCH!!\n THAT'S RIGHT MUDAFAKA!!\nYOU FAKIN WIN BOOIIII!");
         }
 	}
 
