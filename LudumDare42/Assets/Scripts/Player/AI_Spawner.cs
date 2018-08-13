@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AI_Spawner : MonoBehaviour {
 
-    public int maxAI;
+    public int currentMax;
     private List<GameObject> bois;
-
     public float speed;
+    public const int MAX_AI = 10;
     public GameObject[] spawnPoints;
     public GameObject[] boardPoints;
     public GameObject AI;
@@ -24,7 +24,7 @@ public class AI_Spawner : MonoBehaviour {
 	void Update () {
 
 
-        while (bois.Count < maxAI)
+        while (bois.Count < currentMax)
         {
             GameObject aiClone = SpawnBoi();
             bois.Add(aiClone);
