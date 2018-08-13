@@ -64,13 +64,15 @@ public class AI_Spawner : MonoBehaviour {
 
     private GameObject SpawnBoi()
     {
-        Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)].transform;
+        Debug.Log("train num : " + train.trainList.Count);
+        Transform spawn = spawnPoints[Random.Range(0, train.trainList.Count)].transform;
         return Instantiate<GameObject>(AI, spawn.position, this.transform.rotation, parent.transform);
     }
 
     private void BoardTrain(GameObject ai)
     {
-        Vector2 direction = boardPoints[Random.Range(0, boardPoints.Length)].transform.position - ai.transform.position;
+        Debug.Log("train num : " + train.trainList.Count);
+        Vector2 direction = boardPoints[Random.Range(0, train.trainList.Count)].transform.position - ai.transform.position;
         direction.Normalize();
 
         ai.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y) * speed;       

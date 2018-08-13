@@ -21,7 +21,16 @@ public class PlayerAttackCollider : MonoBehaviour {
         if (collision.CompareTag("AI"))
         {
             Debug.Log("aiiii");
+
+            transform.parent.GetComponent<AudioSource>().Play();
+
             AI ai = collision.transform.GetComponent<AI>();
+            AudioSource oof = collision.transform.GetComponent<AudioSource>();
+            if (!oof.isPlaying)
+            {
+                oof.Play();
+            }
+
             ai.DealDamage();
             camShake.ShakeOne(0.25f, .25f);
 

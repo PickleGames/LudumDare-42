@@ -8,10 +8,12 @@ public class Train : MonoBehaviour {
     public int NumberOfCart;
     public GameObject TrainCartFab;
     public List<GameObject> trainList;
+    public bool IsOverlay;
 
     public GameObject player;
     public int playerTrainCartPosition;
-
+    public bool PlayTrainSound;
+    private AudioSource trainSound;
     //0: front 1:mid 2:front_tran 3:mid_tran 4:front_break 5:mid_break 
     public Sprite[] trainSprite; 
 
@@ -25,7 +27,15 @@ public class Train : MonoBehaviour {
         }
         //SpawnTrain();
         //ChangeCartSprite(playerTrainCartPosition, true);
-        
+        if (!IsOverlay)
+        {
+            trainSound = this.GetComponent<AudioSource>();
+            if (PlayTrainSound)
+            {
+                trainSound.Play();
+            }
+        }
+
     }
 
     bool isEnablePlayer;
@@ -36,7 +46,27 @@ public class Train : MonoBehaviour {
             isEnablePlayer = true;
         }
         DeleteTrainCart();
-	}
+
+        if (!IsOverlay)
+        {
+            if (IsAtTrainStation)
+            {
+                if (trainSound.isPlaying)
+                {
+                    trainSound.Stop();
+                }
+            }
+            else
+            {
+                if (!trainSound.isPlaying)
+                {
+                    trainSound.Play();
+                }
+            }
+        }
+        RemoveNull();
+
+    }
 
     public void ChangeCompartment(Direction direction)
     {
@@ -99,6 +129,16 @@ public class Train : MonoBehaviour {
         trainList[trainIndex].GetComponentInChildren<SpriteRenderer>().sprite = trainSprite[spriteValue];
     }
 
+    private void RemoveNull()
+    {
+        for (int i = 0; i < trainList.Count; i++)
+        {
+            if (trainList[i] == null)
+            {
+                trainList.RemoveAt(i);
+            }
+        }
+    }
     private void DeleteTrainCart()
     {
         for (int i = 0; i < trainList.Count; i++)
