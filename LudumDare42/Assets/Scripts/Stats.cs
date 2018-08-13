@@ -61,7 +61,7 @@ public class Stats : MonoBehaviour {
 
     public void UpdateStat()
     {
-        statNums[0] = ""+ score.score;
+        statNums[0] = "$"+ score.score;
         statNums[1] = ""+ (conductor.stops - 1) + "/" + (conductor.finalStop );
         statNums[2] = ""+ player.GetComponentInChildren<PlayerAttackCollider>().smackedCount;
         for (int i = 0; i < statTexts.Length; i++)

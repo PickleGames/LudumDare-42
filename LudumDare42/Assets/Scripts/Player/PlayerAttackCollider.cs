@@ -29,6 +29,8 @@ public class PlayerAttackCollider : MonoBehaviour {
             AudioSource oof = collision.transform.GetComponent<AudioSource>();
             if (!oof.isPlaying)
             {
+                oof.volume = 0.5f;
+                oof.pitch = 1;
                 oof.Play();
             }
 
