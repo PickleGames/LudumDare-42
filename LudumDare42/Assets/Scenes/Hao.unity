@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMax: 0
-  speed: 5
+  speed: 10
   spawnPoints:
   - {fileID: 1897399021}
   - {fileID: 1486839147}
@@ -239,7 +239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4407554727929354, guid: 927d0391b00471d419e05fb6e067de06, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114447127671549762, guid: 927d0391b00471d419e05fb6e067de06,
         type: 2}
@@ -418,7 +418,7 @@ Transform:
   - {fileID: 848200468}
   - {fileID: 2110226976}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508548010
 GameObject:
@@ -455,6 +455,90 @@ Transform:
   m_Father: {fileID: 89056442}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &620304406
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224675181983913570, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.1100445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.7197738
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319438628669466, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909082933985128, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909082933985128, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909082933985128, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 109878b484f472a488511efb3b35da0a,
+        type: 2}
+    - target: {fileID: 114909082933985128, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21083012898886756, guid: 109878b484f472a488511efb3b35da0a,
+        type: 2}
+    - target: {fileID: 224623398430299858, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623398430299858, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 339.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623398430299858, guid: add70a943a91e7c4d987fcf70637ae7a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: add70a943a91e7c4d987fcf70637ae7a, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &627375046
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +958,7 @@ Prefab:
     - target: {fileID: 224643297662195954, guid: b187590eb4f2e194d8b268ef5ed67145,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224643297662195954, guid: b187590eb4f2e194d8b268ef5ed67145,
         type: 2}
@@ -914,7 +998,7 @@ Prefab:
     - target: {fileID: 224643297662195954, guid: b187590eb4f2e194d8b268ef5ed67145,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224643297662195954, guid: b187590eb4f2e194d8b268ef5ed67145,
         type: 2}
@@ -1498,7 +1582,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4659545533089816, guid: bbf168f15e5cde645a9385732b921403, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 4395081492804048, guid: bbf168f15e5cde645a9385732b921403, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1975,6 +2059,7 @@ MonoBehaviour:
   parallax: {fileID: 761220773}
   tunnel: {fileID: 848200467}
   trainStation: {fileID: 370344496}
+  trainStationEnd: {fileID: 1848183946}
   finalStop: 5
   travelTime: 15
   stationTime: 15
@@ -2091,6 +2176,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1848183946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1187611005050246, guid: bbf168f15e5cde645a9385732b921403,
+    type: 2}
+  m_PrefabInternal: {fileID: 2085628539}
 --- !u!4 &1865842803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635588844264586, guid: bbf168f15e5cde645a9385732b921403,
