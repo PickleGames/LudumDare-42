@@ -247,6 +247,9 @@ MonoBehaviour:
   trainCart: {fileID: 0}
   health: 0
   isJustAttack: 0
+  clips:
+  - {fileID: 8300000, guid: f2bed323b4060624e921321f603a44f1, type: 3}
+  - {fileID: 8300000, guid: d8f12cfdf5298be4f88a8fd2b73db82c, type: 3}
 --- !u!114 &114948027141268754
 MonoBehaviour:
   m_ObjectHideFlags: 1
