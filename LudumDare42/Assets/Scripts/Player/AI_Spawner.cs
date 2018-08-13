@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AI_Spawner : MonoBehaviour {
-
+    public Train train;
     public int currentMax;
     private List<GameObject> bois;
     public float speed;
@@ -47,11 +47,18 @@ public class AI_Spawner : MonoBehaviour {
             }
         }
         
-        foreach(GameObject go in bois)
+        for(int i = 0; i < bois.Count; i++)
         {
-            if (go == null || !go.GetComponent<BoxCollider2D>().enabled)
-                bois.Remove(go);
+            if (bois[i] == null || !bois[i].GetComponent<BoxCollider2D>().enabled)
+            {
+                bois.Remove(bois[i]);
+            }
         }
+        //foreach(GameObject go in bois)
+        //{
+        //    if (go == null || !go.GetComponent<BoxCollider2D>().enabled)
+        //        bois.Remove(go);
+        //}
             
     }
 
@@ -84,6 +91,7 @@ public class AI_Spawner : MonoBehaviour {
         go.GetComponent<Rigidbody2D>().gravityScale = 1;
         go.GetComponent<AIMovement>().enabled = true;
         go.GetComponent<AI>().enabled = true;
-        go.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        go.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        train.trainList[train.playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(true);
     }
 }

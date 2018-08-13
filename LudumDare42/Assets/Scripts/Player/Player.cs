@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
     public float speed = 5;
@@ -21,22 +21,29 @@ public class Player : MonoBehaviour {
 	
 	
 	void Update () {
+
+        if (Mathf.Abs(rb.velocity.y) > 5)
+        {
+            Debug.Log("eyyyyy u lose");
+            SceneManager.LoadScene("WIN");
+        }
+
         if (Input.GetKey(KeyCode.D))
         {
             animator.SetBool("isRunning", true);
-            rb.velocity = new Vector2(speed, 0);
+            rb.velocity = new Vector2(speed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
         }
         else if(Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isRunning", true);
-            rb.velocity = new Vector2(-speed, 0);
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
         }
         else
         {
             animator.SetBool("isRunning", false);
-            rb.velocity = new Vector2(0, 0);
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
