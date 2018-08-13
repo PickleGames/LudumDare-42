@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent(typeof(CameraShake))]
 
 public class PlayerAttackCollider : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public CameraShake camShake;
+
+    void Start () {
 		
 	}
 	
@@ -20,7 +22,8 @@ public class PlayerAttackCollider : MonoBehaviour {
         {
             Debug.Log("aiiii");
             AI ai = collision.transform.GetComponent<AI>();
-            ai.FlyAway();
+            ai.DealDamage();
+            camShake.ShakeOne(0.10f, .25f);
 
         }
     }

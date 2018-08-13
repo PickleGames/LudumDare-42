@@ -85,8 +85,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Fk outa here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109878b484f472a488511efb3b35da0a, type: 2}
+  m_sharedMaterial: {fileID: 21083012898886756, guid: 109878b484f472a488511efb3b35da0a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
   m_enableKerning: 1
-  m_enableExtraPadding: 0
+  m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
   m_parseCtrlCharacters: 1
@@ -194,8 +195,8 @@ MonoBehaviour:
   - Get out of mah train
   - No pay no stay
   - Get out you stinkin bump
-  - place holder 1
-  - placer holder 2
+  - Get OUT
+  - Fk outa here
 --- !u!114 &114326925753510644
 MonoBehaviour:
   m_ObjectHideFlags: 1
