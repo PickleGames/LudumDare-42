@@ -11,12 +11,20 @@ public class AI_Spawner : MonoBehaviour {
     public GameObject[] spawnPoints;
     public GameObject[] boardPoints;
     public GameObject AI;
+    public GameObject parent;
 
 	// Use this for initialization
 	void Start () {
         bois = new List<GameObject>();
 
-        for (int i = 0; i < maxAI; i++)
+      
+    }
+	
+	// Update is called once per frame
+	void Update () {
+
+
+        while (bois.Count < maxAI)
         {
             GameObject aiClone = SpawnBoi();
             bois.Add(aiClone);
@@ -26,10 +34,6 @@ public class AI_Spawner : MonoBehaviour {
             aiClone.GetComponentInChildren<SpriteRenderer>().enabled = true;
             BoardTrain(aiClone);
         }
-    }
-	
-	// Update is called once per frame
-	void Update () {
 
         for (int i = 0; i < boardPoints.Length; i++)
         {
@@ -43,13 +47,18 @@ public class AI_Spawner : MonoBehaviour {
             }
         }
         
+        foreach(GameObject go in bois)
+        {
+            if (go == null || !go.GetComponent<BoxCollider2D>().enabled)
+                bois.Remove(go);
+        }
             
     }
 
     private GameObject SpawnBoi()
     {
         Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)].transform;
-        return Instantiate<GameObject>(AI, spawn.position, this.transform.rotation, this.transform);
+        return Instantiate<GameObject>(AI, spawn.position, this.transform.rotation, parent.transform);
     }
 
     private void BoardTrain(GameObject ai)
