@@ -51,7 +51,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -150,4 +150,4 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 93defd48d9774e9448b3bcfb9771917f, type: 3}
   - {fileID: 8300000, guid: fac3aa5964bbd674ca510d194c7567e6, type: 3}
-  loops: 2
+  loops: 1

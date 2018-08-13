@@ -23,7 +23,7 @@ public class JukeBox : MonoBehaviour {
         {
             timesPlayed++;
             audioSource.Play();
-            if(timesPlayed >= loops)
+            if(timesPlayed > loops)
             {
                 int newClip = Random.Range(0, clips.Length);
                 while (clips[newClip] == audioSource.clip)
