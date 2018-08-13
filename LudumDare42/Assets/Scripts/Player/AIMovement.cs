@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AI))]
+
 public class AIMovement : MonoBehaviour {
     public Vector2 movespeed;
 
@@ -13,6 +15,7 @@ public class AIMovement : MonoBehaviour {
     private bool isWalkingLeft;
     private Rigidbody2D rb;
     private AI ai;
+
     void Start()
     {
         moveSpeed = Random.Range(movespeed.x, movespeed.y);
@@ -26,10 +29,19 @@ public class AIMovement : MonoBehaviour {
         anim.SetBool("isWalking", isWalking);
         if (!ai.IsFly)
         {
+            if(ai.isJustAttack)
+            {
+                moveSpeed = Random.Range(7, 10);
+            }else
+            {
+                moveSpeed = Random.Range(movespeed.x, movespeed.y);
+            }
+
             if (!wandering)
             {
-                StartCoroutine(Wander());
+                StopCoroutine(Wander());
                 moveSpeed = Random.Range(movespeed.x, movespeed.y);
+                StartCoroutine(Wander());
             }
             if (isWalking)
             {
@@ -49,8 +61,12 @@ public class AIMovement : MonoBehaviour {
                     //transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
                 }
             }
+
+
         }
 	}
+
+
 
     IEnumerator Wander()
     {
