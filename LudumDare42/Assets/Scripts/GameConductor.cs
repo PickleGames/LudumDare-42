@@ -7,6 +7,7 @@ public class GameConductor : MonoBehaviour {
     public GameObject parallax;
     public GameObject tunnel;
     public GameObject trainStation;
+    public GameObject trainStationEnd;
     public float finalStop;
     private int stops;
 
@@ -29,7 +30,8 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 stimer = 0;            
                 atStation = false;
-            
+                parallax.SetActive(true);
+                trainStationEnd.SetActive(false);
             }
         }
         else
@@ -52,6 +54,7 @@ public class GameConductor : MonoBehaviour {
             {
                 parallax.SetActive(false);
                 trainStation.SetActive(true);
+                trainStationEnd.SetActive(true);
             }
             else
             {

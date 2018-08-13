@@ -25,7 +25,10 @@ public class TrainCart : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(!Train.IsAtTrainStation)
+
+        Scoring.Instance.AddScore(10*numberOfPeople, 2);
+
+        if (!Train.IsAtTrainStation)
         {
             ReduceDurability();
         }
