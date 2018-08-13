@@ -20,7 +20,7 @@ public class AI : MonoBehaviour {
     {
         if (IsFly)
         {
-            transform.Translate(new Vector2(-0.25f, 0));
+            transform.Translate(new Vector2(-1f, 0));
             transform.Rotate(new Vector3(0, 0, 25));
         }
     }

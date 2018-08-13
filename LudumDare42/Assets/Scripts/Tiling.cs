@@ -67,7 +67,7 @@ public class Tiling : MonoBehaviour
         }
 
         // check if clone is 'offscreen' (to the left) and delete
-        if (edgePositionRight + spriteWidth / 2 <= cam.transform.position.x)
+        if (edgePositionRight + spriteWidth / 2 <= cam.transform.position.x - offsetX)
         {
             hasALeftClone = false;
             Destroy(this.gameObject);
