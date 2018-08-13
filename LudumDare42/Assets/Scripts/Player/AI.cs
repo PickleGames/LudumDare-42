@@ -9,6 +9,7 @@ public class AI : MonoBehaviour {
     public int health;
     public bool IsDead { get; private set; }
     public bool isJustAttack;
+    public AudioClip[] clips;
 
     private float timeElapsedAttack;
     private float timeElapsedColor;
@@ -65,6 +66,13 @@ public class AI : MonoBehaviour {
         this.GetComponent<BoxCollider2D>().enabled = false;
         IsFly = true;
         trainCart.RemovePeople(this.gameObject);
+        AudioSource scream = this.GetComponent<AudioSource>();
+        scream.clip = clips[0];
+        if (!scream.isPlaying)
+        {
+            scream.Play();
+        }
+
     }
 
     public void DealDamage()

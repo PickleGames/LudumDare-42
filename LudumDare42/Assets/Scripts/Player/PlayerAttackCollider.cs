@@ -33,7 +33,7 @@ public class PlayerAttackCollider : MonoBehaviour {
             }
 
             ai.DealDamage();
-            camShake.ShakeOne(0.25f, .25f);
+            camShake.ShakeOne(0.10f, .25f);
 
         }
     }
