@@ -7,13 +7,17 @@ public class TrainCart : MonoBehaviour {
     public const int MAX_PEOPLE = 10;
     public const float DURABILITY_DAMAGE = 0.1f;
     public const float TIME_DESTROY = 2f;
+    public const float MAX_DURABILITY = 100;
 
     public bool IsBreak { get; set; }
     public int numberOfPeople;
-    public float Durability { get; private set; }
+    public float Durability { get; set; }
 
     public List<GameObject> aiList;
     private float timeElapsed;
+
+    private bool isColorChanged;
+    private float timeColorElapsed;
 
     void Start () {
         aiList = new List<GameObject>();
@@ -36,7 +40,26 @@ public class TrainCart : MonoBehaviour {
             Destroy(transform.gameObject);
             KillAll();
         }
-	}
+
+        if (Durability < MAX_DURABILITY * .5f)
+        {
+            CameraShake.Instance.isContinueShake = true;
+            
+            if (!isColorChanged)
+            {
+                //ChangeColor();
+                //timeColorElapsed += Time.deltaTime;
+                //if (timeColorElapsed >= .2f)
+                //{
+                //    timeColorElapsed = 0;
+                //    ResetColor();
+                //}
+                StartCoroutine(FlashColor());
+            }
+
+        }
+
+    }
 
     public int GainPoints()
     {
@@ -71,6 +94,35 @@ public class TrainCart : MonoBehaviour {
             aiList[i].GetComponent<AI>().FlyAway();
 
         }
+    }
+
+    private void ChangeColor()
+    {
+        SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
+        sr.color = new Color(1f, 0, 0, .7f);
+        isColorChanged = true;
+    }
+
+    private void ResetColor()
+    {
+        SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
+        sr.color = new Color(1f, 1f, 1f, 1f);
+        isColorChanged = false;
+    }
+
+    private IEnumerator FlashColor()
+    {
+        isColorChanged = true;
+        SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
+        sr.color = new Color(1f, 0, 0, 1f);
+        yield return new WaitForSeconds(.3f);
+        sr.color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(.3f);
+        sr.color = new Color(1f, 0, 0, 1f);
+        yield return new WaitForSeconds(.3f);
+        sr.color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(.3f);
+        isColorChanged = false;
     }
 
     private void ReduceDurability()
