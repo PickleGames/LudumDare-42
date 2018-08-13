@@ -7,9 +7,8 @@ public class GameConductor : MonoBehaviour {
     public GameObject parallax;
     public GameObject tunnel;
     public GameObject trainStation;
-
     public float finalStop;
-    private float stops;
+    private int stops;
 
     public float travelTime;
     public float stationTime;
@@ -22,7 +21,6 @@ public class GameConductor : MonoBehaviour {
     float tTimer, stimer;
 	// Update is called once per frame
 	void Update () {
-     
         if (atStation)
         {
             stimer += Time.deltaTime;
@@ -43,6 +41,7 @@ public class GameConductor : MonoBehaviour {
                 tTimer = 0;
                 atStation = true;
                 stops++;
+                trainStation.GetComponentInChildren<AI_Spawner>().currentMax = (AI_Spawner.MAX_AI * stops);
             }
         }
 
