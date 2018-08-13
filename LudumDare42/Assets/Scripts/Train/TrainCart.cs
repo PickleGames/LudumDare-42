@@ -76,7 +76,6 @@ public class TrainCart : MonoBehaviour {
 
     public void RemovePeople(GameObject go)
     {
-        Debug.Log("ai remove");
         numberOfPeople -= 1;
         aiList.Remove(go);
     }
@@ -147,6 +146,13 @@ public class TrainCart : MonoBehaviour {
             collision.gameObject.GetComponent<AI>().trainCart = this;
         }
 
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("AI"))
+        {
+            RemovePeople(other.gameObject);
+        } 
     }
 
 }

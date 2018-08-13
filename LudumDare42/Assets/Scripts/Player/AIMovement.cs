@@ -48,7 +48,7 @@ public class AIMovement : MonoBehaviour {
                 if (isWalkingRight)
                 {
                     //Debug.Log("MOVING RIGHT");
-                    rb.velocity = new Vector2(moveSpeed, 0);
+                    rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
                     transform.localScale = new Vector2(1,1);
                     //transform.Translate(moveSpeed * Time.deltaTime, 0, 0);
                     //Debug.Log(isWalkingLeft);
@@ -57,10 +57,11 @@ public class AIMovement : MonoBehaviour {
                 {
                     transform.localScale = new Vector2(-1, 1);
                     //Debug.Log("MOVING LEFT");
-                    rb.velocity = new Vector2(-moveSpeed, 0);
+                    rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
                     //transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
                 }
             }
+
 
 
         }

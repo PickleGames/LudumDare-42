@@ -59,9 +59,6 @@ public class Tunnel : MonoBehaviour {
     public void ComeBack()
     {
         sr.enabled = true;
-        Debug.Log("Turn on sprite!!");
-        Debug.Log(sr.enabled);
-        Debug.Log(sr);
     }
   
     public void ResetTunnel()

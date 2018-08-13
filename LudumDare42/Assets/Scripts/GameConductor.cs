@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameConductor : MonoBehaviour {
 
     public GameObject parallax;
@@ -16,7 +16,7 @@ public class GameConductor : MonoBehaviour {
     private bool atStation;
 	// Use this for initialization
 	void Start () {
-        stops = 0;
+        stops = 1;
 	}
 
     float tTimer, stimer;
@@ -32,6 +32,7 @@ public class GameConductor : MonoBehaviour {
                 atStation = false;
                 parallax.SetActive(true);
                 trainStationEnd.SetActive(false);
+                stops++;
             }
         }
         else
@@ -42,7 +43,6 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 tTimer = 0;
                 atStation = true;
-                stops++;
                 trainStation.GetComponentInChildren<AI_Spawner>().currentMax = (AI_Spawner.MAX_AI * stops);
             }
         }
@@ -58,17 +58,17 @@ public class GameConductor : MonoBehaviour {
             }
             else
             {
-                Debug.Log("TURN ON PARALLAX");
                 parallax.SetActive(true);
                 trainStation.SetActive(false);
             }
         }
 
-        if(stops >= finalStop)
+        if(stops > finalStop)
         {
             Debug.Log("YOU WIN BITCH!!\nYOU WIN BITCH!!\n THAT'S RIGHT MUDAFAKA!!\nYOU FAKIN WIN BOOIIII!");
             tTimer = 0;
             stimer = 0;
+            SceneManager.LoadScene("WIN");
         }
 	}
 

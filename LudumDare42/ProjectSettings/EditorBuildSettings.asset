@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hao.unity
     guid: 606cd935f08e6db41846aca621ce52b0
+  - enabled: 1
+    path: Assets/Scenes/WIN.unity
+    guid: 4459882b9fabe1842892bd9a1eb8f7c9
   m_configObjects: {}

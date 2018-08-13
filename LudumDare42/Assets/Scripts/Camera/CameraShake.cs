@@ -7,8 +7,10 @@ public class CameraShake : MonoBehaviour {
     public static CameraShake Instance;
     public float amplitude;
     public bool isContinueShake;
+    public bool isShakeX = true;
+    public bool isShakeY = true;
 
-    public Transform initPos;
+    public Transform targetPos;
     private bool isShake;
 
     void Start () {
@@ -17,12 +19,13 @@ public class CameraShake : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log(initPos.position);
+        Debug.Log("player: " + targetPos.position);
         if (isContinueShake)
         {
-            Shake(initPos.position, amplitude);
+            Shake(targetPos.position, amplitude);
         }
-        this.transform.position = new Vector3(this.transform.position.x, 0 , this.transform.position.z);
+            this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+        
 	}
 
     public void ShakeOne(float amplitude, float duration)
@@ -37,18 +40,19 @@ public class CameraShake : MonoBehaviour {
     {
         isShake = true;
         float elapsed = 0f;
+        Vector3 camInitial = this.transform.position;
         Vector3 position = Vector3.zero;
         while (elapsed < duration)
         {
-            position.x = initPos.position.x + PositiveNegative() * Random.Range(0f, 1f) * amplitude;
-            position.y = initPos.position.y + PositiveNegative() * Random.Range(0f, 1f) * amplitude;
-            
+            position.x = targetPos.position.x + Random.Range(-1f, 1f) * amplitude;
+            position.y = camInitial.y + Random.Range(-1f, 1f) * amplitude; // temp fix
+            Debug.Log("cam: " + position);
             elapsed += Time.deltaTime;
             this.transform.position = new Vector3(position.x, position.y, -10);
 
             yield return null;
         }
-        this.transform.position = new Vector3(initPos.position.x, initPos.position.y, -10);
+        this.transform.position = new Vector3(targetPos.position.x, camInitial.y, -10);
         isShake = false;
     }
 
@@ -56,14 +60,10 @@ public class CameraShake : MonoBehaviour {
     {
         //Debug.Log("initial: " + initPosition);
         Vector2 position = new Vector2(0,0);
-        position.x = initPosition.x + PositiveNegative() * Random.Range(0f, 1f) * amplitude;
-        position.y = initPosition.y + PositiveNegative() * Random.Range(0f, 1f) * amplitude;
+        position.x = initPosition.x + Random.Range(-1f, 1f) * amplitude;
+        position.y = initPosition.y + Random.Range(-1f, 1f) * amplitude;
         //Debug.Log("after: " + position);
         this.transform.position = new Vector3(position.x, position.y, -10);
     }
 
-    private int PositiveNegative()
-    {
-        return Random.Range(0f, 1f) > 0.5 ? 1 : -1;
-    }
 }
