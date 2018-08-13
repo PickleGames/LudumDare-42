@@ -27,7 +27,7 @@ public class TrainMiniMap : MonoBehaviour {
         currentTrain.playerTrainCartPosition = targetTrain.playerTrainCartPosition;
         for(int i = 0; i < currentTrain.trainList.Count; i++)
         {
-            if (currentTrain.trainList[i] == null) continue;
+            if (currentTrain.trainList[i] == null || targetCartList[i] == null) continue;
             TrainCart tc = currentTrain.trainList[i].GetComponent<TrainCart>();
             SpriteRenderer sr = tc.transform.GetComponentInChildren<SpriteRenderer>();
 
