@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328e271dd740019408c74a88dd3adb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainCart: {fileID: 0}
 --- !u!114 &114948027141268754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c7b343cd9af5346b3eb41fae57df90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: {x: 1, y: 1}
+  movespeed: {x: 1, y: 3}
 --- !u!212 &212839114309692888
 SpriteRenderer:
   m_ObjectHideFlags: 1

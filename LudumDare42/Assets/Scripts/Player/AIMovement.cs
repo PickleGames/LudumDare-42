@@ -29,21 +29,22 @@ public class AIMovement : MonoBehaviour {
             if (!wandering)
             {
                 StartCoroutine(Wander());
+                moveSpeed = Random.Range(movespeed.x, movespeed.y);
             }
             if (isWalking)
             {
                 if (isWalkingRight)
                 {
-                    Debug.Log("MOVING RIGHT");
+                    //Debug.Log("MOVING RIGHT");
                     rb.velocity = new Vector2(moveSpeed, 0);
                     transform.localScale = new Vector2(1,1);
                     //transform.Translate(moveSpeed * Time.deltaTime, 0, 0);
-                    Debug.Log(isWalkingLeft);
+                    //Debug.Log(isWalkingLeft);
                 }
                 if (isWalkingLeft)
                 {
                     transform.localScale = new Vector2(-1, 1);
-                    Debug.Log("MOVING LEFT");
+                    //Debug.Log("MOVING LEFT");
                     rb.velocity = new Vector2(-moveSpeed, 0);
                     //transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
                 }
