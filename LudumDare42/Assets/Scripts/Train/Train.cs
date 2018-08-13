@@ -112,6 +112,11 @@ public class Train : MonoBehaviour {
                 }
                 break;
             }
+
+            if (i < trainList.Count - 1 && trainList[i + 1] == null)
+            {
+                trainList[i].transform.GetChild(1).transform.gameObject.SetActive(false);
+            }
         }
     }
 
