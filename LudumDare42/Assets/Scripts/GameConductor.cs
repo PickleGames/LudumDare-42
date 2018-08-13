@@ -75,6 +75,7 @@ public class GameConductor : MonoBehaviour {
             Debug.Log("YOU WIN BITCH!!\nYOU WIN BITCH!!\n THAT'S RIGHT MUDAFAKA!!\nYOU FAKIN WIN BOOIIII!");
             tTimer = 0;
             stimer = 0;
+            Stats.instance.UpdateStat();
             SceneManager.LoadScene("WIN");
         }
 	}

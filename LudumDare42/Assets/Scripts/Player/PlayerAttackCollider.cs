@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAttackCollider : MonoBehaviour {
 
     public CameraShake camShake;
+    public int smackedCount;
 
     void Start () {
 		
@@ -21,7 +22,7 @@ public class PlayerAttackCollider : MonoBehaviour {
         if (collision.CompareTag("AI"))
         {
             Debug.Log("aiiii");
-
+            smackedCount++;
             transform.parent.GetComponent<AudioSource>().Play();
 
             AI ai = collision.transform.GetComponent<AI>();

@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
         if (Mathf.Abs(rb.velocity.y) > 5)
         {
             Debug.Log("eyyyyy u lose");
+            Stats.instance.UpdateStat();
             SceneManager.LoadScene("LOST");
         }
 
