@@ -105,6 +105,7 @@ public class Train : MonoBehaviour {
         {
             if (trainList[i] == null)
             {
+                CameraShake.Instance.isContinueShake = false;
                 for (int j = i + 1; j < trainList.Count; j++)
                 {
                     if (trainList[j] == null) continue;
