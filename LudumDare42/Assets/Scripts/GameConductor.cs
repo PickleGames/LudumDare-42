@@ -31,7 +31,7 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 stimer = 0;            
                 atStation = false;
-                stops++;
+            
             }
         }
         else
@@ -42,7 +42,7 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 tTimer = 0;
                 atStation = true;
-               
+                stops++;
             }
         }
 
@@ -65,6 +65,8 @@ public class GameConductor : MonoBehaviour {
         if(stops >= finalStop)
         {
             Debug.Log("YOU WIN BITCH!!\nYOU WIN BITCH!!\n THAT'S RIGHT MUDAFAKA!!\nYOU FAKIN WIN BOOIIII!");
+            tTimer = 0;
+            stimer = 0;
         }
 	}
 
