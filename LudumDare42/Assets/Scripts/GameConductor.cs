@@ -50,7 +50,7 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 tTimer = 0;
                 atStation = true;
-                trainStation.GetComponentInChildren<AI_Spawner>().currentMax = (AI_Spawner.MAX_AI * stops);
+                trainStation.GetComponentInChildren<AI_Spawner>().currentMax = (int)(AI_Spawner.MAX_AI * Mathf.Pow(stops, 1.25f));
             }
         }
 
