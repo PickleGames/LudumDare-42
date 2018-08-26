@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Direction  {
-    Left, Right
+    Left, Right, Neutral
 }

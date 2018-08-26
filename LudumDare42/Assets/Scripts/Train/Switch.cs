@@ -40,9 +40,10 @@ public class Switch : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             displayText.GetComponent<MeshRenderer>().enabled = true;
+            train.ChangeSwitchDirection(direction);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                train.ChangeCompartment(direction);
+                //train.ChangeCompartment(direction);
             }
         }
     }
