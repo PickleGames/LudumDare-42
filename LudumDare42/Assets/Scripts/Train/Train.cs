@@ -15,7 +15,9 @@ public class Train : MonoBehaviour {
     public bool PlayTrainSound;
     private AudioSource trainSound;
     //0: front 1:mid 2:front_tran 3:mid_tran 4:front_break 5:mid_break 
-    public Sprite[] trainSprite; 
+    public Sprite[] trainSprite;
+
+    public Direction switchDirection = Direction.Neutral;
 
 	void Start () {
         trainList = new List<GameObject>();
@@ -68,20 +70,25 @@ public class Train : MonoBehaviour {
 
     }
 
-    public void ChangeCompartment(Direction direction)
+    public void ChangeSwitchDirection(Direction direction)
+    {
+        switchDirection = direction;
+    }
+
+    public void ChangeCompartment()
     {
         ChangeCartSprite(playerTrainCartPosition, false);
         trainList[playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(false);
-        if (direction == Direction.Left) 
+        if (switchDirection == Direction.Left) 
         {
             if (playerTrainCartPosition < trainList.Count - 1) playerTrainCartPosition++;
         }
-        else if(direction == Direction.Right) 
+        else if(switchDirection == Direction.Right) 
         {
             if(playerTrainCartPosition > 0) playerTrainCartPosition--;
         }
 
-        TeleportPlayer(playerTrainCartPosition, direction);
+        TeleportPlayer(playerTrainCartPosition, switchDirection);
         trainList[playerTrainCartPosition].GetComponent<TrainCart>().ChangePeopleRenderer(true);
         ChangeCartSprite(playerTrainCartPosition, true);
     }
@@ -174,6 +181,7 @@ public class Train : MonoBehaviour {
             trainList.Add(go);
         }
     }
+
 
     
 
