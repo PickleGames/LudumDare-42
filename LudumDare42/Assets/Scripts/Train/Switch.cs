@@ -27,12 +27,14 @@ public class Switch : MonoBehaviour {
         
     }
 
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             displayText.GetComponent<MeshRenderer>().enabled = false;
         }
+        train.ChangeSwitchDirection(Direction.Neutral);
     }
 
     private void ChangeCompartment(Collider2D collision)
@@ -44,6 +46,7 @@ public class Switch : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //train.ChangeCompartment(direction);
+                train.ChangeCompartment();
             }
         }
     }
