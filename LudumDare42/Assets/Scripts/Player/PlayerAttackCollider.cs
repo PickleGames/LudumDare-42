@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAttackCollider : MonoBehaviour {
 
     public CameraShake camShake;
+    public int smackedCount;
 
     void Start () {
 		
@@ -21,9 +22,20 @@ public class PlayerAttackCollider : MonoBehaviour {
         if (collision.CompareTag("AI"))
         {
             Debug.Log("aiiii");
+            smackedCount++;
+            transform.parent.GetComponent<AudioSource>().Play();
+
             AI ai = collision.transform.GetComponent<AI>();
+            AudioSource oof = collision.transform.GetComponent<AudioSource>();
+            if (!oof.isPlaying)
+            {
+                oof.volume = 0.5f;
+                oof.pitch = 1;
+                oof.Play();
+            }
+
             ai.DealDamage();
-            camShake.ShakeOne(0.25f, .25f);
+            camShake.ShakeOne(0.10f, .25f);
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AI : MonoBehaviour {
@@ -9,28 +10,73 @@ public class AI : MonoBehaviour {
     public int health;
     public bool IsDead { get; private set; }
     public bool isJustAttack;
+    public AudioClip[] clips;
 
     private float timeElapsedAttack;
     private float timeElapsedColor;
     private bool isColorChanged;
 
+    private TextMeshPro textMoney;
+    private float timeMoney;
+    private float timeMoneyDis;
+    private bool isMoneyEnable;
+    private SpriteRenderer sprite;
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-        sr.enabled = false;
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.enabled = false;
         health = 3;
+        textMoney = this.GetComponentInChildren<TextMeshPro>();
+        textMoney.enabled = false;
     }
 
+    public void EnableSpeech()
+    {
+        isMoneyEnable = true;
+        textMoney.enabled = true;
+    }
 
+    public void DisableSpeech()
+    {
+        textMoney.enabled = false;
+    }
+
+    float delay = 2;
     void Update()
     {
+        if (sprite.enabled)
+        {
+            timeMoney += Time.deltaTime;
+            if (timeMoney > delay)
+            {
+                timeMoney = 0;
+                EnableSpeech();
+                delay = Random.Range(1f, 3f);
+            }
+            if (isMoneyEnable)
+            {
+                timeMoneyDis += Time.deltaTime;
+                if (timeMoneyDis >= 2)
+                {
+                    isMoneyEnable = false;
+                    timeMoneyDis = 0;
+                    DisableSpeech();
+                }
+            }
+        }else
+        {
+            DisableSpeech();
+        }
+        
+
+
         if (IsFly)
         {
-            transform.Translate(new Vector2(-1f, 0));
-            transform.Rotate(new Vector3(0, 0, 25));
+            transform.Translate(new Vector2(-.35f, 0));
+            transform.RotateAround(transform.position, Vector3.down, -5);
         }
         if(health <= 0)
         {
@@ -65,6 +111,15 @@ public class AI : MonoBehaviour {
         this.GetComponent<BoxCollider2D>().enabled = false;
         IsFly = true;
         trainCart.RemovePeople(this.gameObject);
+        AudioSource scream = this.GetComponent<AudioSource>();
+        scream.clip = clips[0];
+        scream.volume = 0.25f;
+        scream.pitch = Random.Range(.65f, 1f);
+        if (!scream.isPlaying)
+        {
+            scream.Play();
+        }
+
     }
 
     public void DealDamage()

@@ -6,6 +6,7 @@ public class TrainMiniMap : MonoBehaviour {
 
     public Train targetTrain;
     public List<TrainCart> targetCartList;
+    public bool AllowIncreasePoint;
 
     private Train currentTrain;
 
@@ -15,7 +16,9 @@ public class TrainMiniMap : MonoBehaviour {
         {
             if (child.CompareTag("TrainCart"))
             {
-                targetCartList.Add(child.GetComponent<TrainCart>());
+                TrainCart tc = child.GetComponent<TrainCart>();
+                targetCartList.Add(tc);
+                tc.allowIncreasePoint = AllowIncreasePoint;
             }
         }
 

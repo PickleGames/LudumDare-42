@@ -9,19 +9,25 @@ public class GameConductor : MonoBehaviour {
     public GameObject trainStation;
     public GameObject trainStationEnd;
     public float finalStop;
-    private int stops;
+    public int stops;
+    public Train train;
 
     public float travelTime;
     public float stationTime;
-    private bool atStation;
+    public bool atStation;
+
+    private AudioSource trainWhistle;
 	// Use this for initialization
 	void Start () {
         stops = 1;
-	}
+        trainWhistle = this.GetComponent<AudioSource>();
+
+    }
 
     float tTimer, stimer;
 	// Update is called once per frame
 	void Update () {
+        Train.IsAtTrainStation = atStation;
         if (atStation)
         {
             stimer += Time.deltaTime;
@@ -33,6 +39,7 @@ public class GameConductor : MonoBehaviour {
                 parallax.SetActive(true);
                 trainStationEnd.SetActive(false);
                 stops++;
+                trainWhistle.Play();
             }
         }
         else
@@ -43,7 +50,7 @@ public class GameConductor : MonoBehaviour {
                 tunnel.GetComponent<Tunnel>().ResetTunnel();
                 tTimer = 0;
                 atStation = true;
-                trainStation.GetComponentInChildren<AI_Spawner>().currentMax = (AI_Spawner.MAX_AI * stops);
+                trainStation.GetComponentInChildren<AI_Spawner>().currentMax = (int)(AI_Spawner.MAX_AI * Mathf.Pow(stops, 1.25f));
             }
         }
 
@@ -68,6 +75,7 @@ public class GameConductor : MonoBehaviour {
             Debug.Log("YOU WIN BITCH!!\nYOU WIN BITCH!!\n THAT'S RIGHT MUDAFAKA!!\nYOU FAKIN WIN BOOIIII!");
             tTimer = 0;
             stimer = 0;
+            Stats.instance.UpdateStat();
             SceneManager.LoadScene("WIN");
         }
 	}

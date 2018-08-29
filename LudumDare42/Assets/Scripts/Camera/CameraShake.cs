@@ -19,12 +19,12 @@ public class CameraShake : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("player: " + targetPos.position);
+        //Debug.Log("player: " + targetPos.position);
         if (isContinueShake)
         {
             Shake(targetPos.position, amplitude);
+            this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
         }
-            this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         
 	}
 
@@ -46,7 +46,7 @@ public class CameraShake : MonoBehaviour {
         {
             position.x = targetPos.position.x + Random.Range(-1f, 1f) * amplitude;
             position.y = camInitial.y + Random.Range(-1f, 1f) * amplitude; // temp fix
-            Debug.Log("cam: " + position);
+            //Debug.Log("cam: " + position);
             elapsed += Time.deltaTime;
             this.transform.position = new Vector3(position.x, position.y, -10);
 

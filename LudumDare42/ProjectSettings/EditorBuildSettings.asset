@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WIN.unity
     guid: 4459882b9fabe1842892bd9a1eb8f7c9
+  - enabled: 1
+    path: Assets/Scenes/Nguyen_1.unity
+    guid: 1787ccb5f0ffabc439cd6c4b103bad33
+  - enabled: 1
+    path: Assets/Scenes/LOST.unity
+    guid: f2fb8832ecc7ab24cb68655bbf3ef261
   m_configObjects: {}

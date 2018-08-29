@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour {
     public AudioSource GameMusic;
 
 
-    public void playGame(int levels)
+    public void playGame(string levels)
     {
         Debug.Log("Loading GAME...");
         SceneManager.LoadScene(levels);

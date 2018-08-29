@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
     public float speed = 5;
     public SpeechBubble speechBubble;
+    public JoystickController joystick;
 
     private Animator animator;
     private BoxCollider2D playerAttackTrigger;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         playerAttackTrigger = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
         animator = this.GetComponent<Animator>();
+        
 	}
 	
 	
@@ -25,36 +27,45 @@ public class Player : MonoBehaviour {
         if (Mathf.Abs(rb.velocity.y) > 5)
         {
             Debug.Log("eyyyyy u lose");
-            SceneManager.LoadScene("WIN");
+            Stats.instance.UpdateStat();
+            SceneManager.LoadScene("LOST");
+        }
+
+        if(rb.velocity.x != 0)
+        {
+            animator.SetBool("isRunning", true);
+            if(rb.velocity.x > 0)
+            {
+                transform.localScale = new Vector2(1, 1);
+            }
+            else if (rb.velocity.x < 0)
+            {
+                transform.localScale = new Vector2(-1, 1);
+            }
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            animator.SetBool("isRunning", true);
             rb.velocity = new Vector2(speed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
         }
         else if(Input.GetKey(KeyCode.A))
         {
-            animator.SetBool("isRunning", true);
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
         }
         else
-        {
-            animator.SetBool("isRunning", false);
+        { 
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerAttackTrigger.enabled = true;
-            isAttack = true;
-            animator.SetTrigger("kick");
-            if (!speechBubble.IsEnable)
-            {
-                speechBubble.EnableSpeech();
-            }
+            Attack();
         }
 
         if (isAttack)
@@ -65,9 +76,30 @@ public class Player : MonoBehaviour {
                 timeAttackElapsed = 0;
                 isAttack = false;
                 playerAttackTrigger.enabled = false;
-
             }
         }
 
+        UpdateJoystickMovement();
+    }
+
+    public void Attack()
+    {
+        playerAttackTrigger.enabled = true;
+        isAttack = true;
+        animator.SetTrigger("kick");
+        if (!speechBubble.IsEnable)
+        {
+            speechBubble.EnableSpeech();
+        }
+    }
+
+    private void UpdateJoystickMovement()
+    {
+        if(joystick != null)
+        {
+            float x = joystick.X * speed;
+            float y = joystick.Y;
+            rb.velocity = new Vector2(x, rb.velocity.y);
+        }
     }
 }
