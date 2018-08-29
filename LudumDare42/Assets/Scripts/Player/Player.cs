@@ -48,6 +48,7 @@ public class Player : MonoBehaviour {
             animator.SetBool("isRunning", false);
         }
 
+//#if UNITY_EDITOR_WIN
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -78,8 +79,10 @@ public class Player : MonoBehaviour {
                 playerAttackTrigger.enabled = false;
             }
         }
-
+//#elif UNITY_ANDROID
         UpdateJoystickMovement();
+//#endif
+
     }
 
     public void Attack()
