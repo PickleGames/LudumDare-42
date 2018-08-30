@@ -29,13 +29,13 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene("LOST");
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0)
         {
             animator.SetBool("isRunning", true);
             rb.velocity = new Vector2(speed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
         }
-        else if(Input.GetKey(KeyCode.A))
+        else if(Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0)
         {
             animator.SetBool("isRunning", true);
             rb.velocity = new Vector2(-speed, rb.velocity.y);
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             playerAttackTrigger.enabled = true;
             isAttack = true;

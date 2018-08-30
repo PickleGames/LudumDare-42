@@ -40,7 +40,7 @@ public class Switch : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             displayText.GetComponent<MeshRenderer>().enabled = true;
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 train.ChangeCompartment(direction);
             }
