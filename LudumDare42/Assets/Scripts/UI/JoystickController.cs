@@ -52,8 +52,8 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
             inputVector = new Vector2(position.x * 2, position.y * 2);
             inputVector = inputVector.magnitude > 1 ? inputVector.normalized : inputVector;
-            float x = enableX ? inputVector.x * background.rectTransform.sizeDelta.x / 3 : 0;
-            float y = enableY ? inputVector.y * background.rectTransform.sizeDelta.y / 3 : 0;
+            float x = enableX ? inputVector.x * background.rectTransform.sizeDelta.x / 4 : 0;
+            float y = enableY ? inputVector.y * background.rectTransform.sizeDelta.y / 4 : 0;
             joystick.rectTransform.anchoredPosition = new Vector2(x, y);
                                                                   
             //Debug.Log(inputVector);
