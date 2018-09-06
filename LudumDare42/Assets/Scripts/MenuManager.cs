@@ -6,16 +6,15 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class MenuManager : MonoBehaviour {
-    public AudioSource GameMusic;
 
-
-    public void playGame(string levels)
+    public void PlayGame(string levels)
     {
         Debug.Log("Loading GAME...");
+        Time.timeScale = 1;
         SceneManager.LoadScene(levels);
     }
 
-    public void exitGame()
+    public void ExitGame()
     {
         Debug.Log("Quitting Game...");
         Application.Quit();
