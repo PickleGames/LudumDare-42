@@ -64,14 +64,14 @@ public class AI_Spawner : MonoBehaviour {
 
     private GameObject SpawnBoi()
     {
-        Debug.Log("train num : " + train.trainList.Count);
+        //Debug.Log("train num : " + train.trainList.Count);
         Transform spawn = spawnPoints[Random.Range(0, train.trainList.Count)].transform;
         return Instantiate<GameObject>(AI, spawn.position, this.transform.rotation, parent.transform);
     }
 
     private void BoardTrain(GameObject ai)
     {
-        Debug.Log("train num : " + train.trainList.Count);
+        //Debug.Log("train num : " + train.trainList.Count);
         Vector2 direction = boardPoints[Random.Range(0, train.trainList.Count)].transform.position - ai.transform.position;
         direction.Normalize();
 

@@ -36,7 +36,7 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
     void Update()
     {
         UpdateRotation();
-        Debug.Log(X + " " + Y);
+        //Debug.Log(X + " " + Y);
     }
 
     public void OnDrag(PointerEventData eventData)

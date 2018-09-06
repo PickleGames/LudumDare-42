@@ -8,18 +8,36 @@ public class JukeBox : MonoBehaviour {
     private AudioSource audioSource;
     public AudioClip[] clips;
     public float numOfLoops;
-    //public bool isLoop;
+    public float musicVolume;
+
+    public bool isPlay; //Mute
     public static JukeBox Instance;
     private float timesPlayed;
 
-	// Use this for initialization
-	void Start () {
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Instance.clips = this.clips;
+            Destroy(this.gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Start () {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
         audioSource.loop = true;
+        musicVolume = audioSource.volume; 
         audioSource.Play();
+        isPlay = true;
         timesPlayed = 0;
-        Instance = this;
 
     }
 	
@@ -62,6 +80,7 @@ public class JukeBox : MonoBehaviour {
             audioSource.clip = audio;
             audioSource.loop = isLoop;
             audioSource.Play();
+            isPlay = true;
         }
         else
         {
@@ -75,11 +94,18 @@ public class JukeBox : MonoBehaviour {
         {
             timesPlayed++;
             audioSource.Play();
+            isPlay = true;
         }
     }
 
     private AudioClip GetRandomAudioClip()
     {
         return clips[UnityEngine.Random.Range(0, clips.Length)];
+    }
+
+    public void ToggleMusic()
+    {
+        audioSource.volume = audioSource.volume != 0 ? 0 : 1;
+        isPlay = !isPlay;
     }
 }

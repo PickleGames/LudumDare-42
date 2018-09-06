@@ -14,15 +14,14 @@ public class Scoring : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        scoreText.text = "Dollar$: " + score;
-        stopText.text = "Stops: " + gameConductor.stops + "/" + gameConductor.finalStop;
         Instance = this;
-	}
+        UpdateStatText();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        scoreText.text = "Dollar$: " + score;
-        stopText.text = "Stops: " + gameConductor.stops + "/" + gameConductor.finalStop;
+        UpdateStatText();
     }
 
     public void AddScore(int increment)
@@ -40,5 +39,11 @@ public class Scoring : MonoBehaviour {
             AddScore(increment);
             timer = 0;
         }
+    }
+
+    private void UpdateStatText()
+    {
+        scoreText.text = "Dollar: $" + score;
+        stopText.text = "Stops: " + gameConductor.stops + "/" + gameConductor.finalStop;
     }
 }
